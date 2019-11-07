@@ -7,6 +7,6 @@ namespace LdapFramework.services
 {
     public interface IAuthenticationService
     {
-         ApplicationUser Login(string username, string password);
+      
     }
 }

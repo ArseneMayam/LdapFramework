@@ -8,5 +8,11 @@ namespace LdapFramework.entities
     {
         public string cn { get; set; }
         public string sn { get; set; }
+        public string uid { get; set; }
+        public string pwd { get; set; }
+        public ApplicationUser()
+        {
+
+        }
     }
 }

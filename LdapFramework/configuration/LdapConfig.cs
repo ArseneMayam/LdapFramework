@@ -1,26 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
+
 namespace LdapFramework.configuration
 {
     public class LdapConfig
     {
-        private readonly IConfiguration config;
 
-        public string Url { get; set; }
-        public string BindDn { get; set; }
-        public string BindCredentials { get; set; }
-        public string SearchBase { get; set; }
-        public string SearchFilter { get; set; }
-        public string AdminCn { get; set; }
+        public string Url { get; set; } = "localhost";
+        public string BindDn { get; set; } = "uid=admin,ou=system";
+        public string BindCredentials { get; set; } = "secret";
+        public string SearchBase { get; set; } = "DC=contoso,DC=local";
+        public string SearchFilter { get; set; } = "(&(objectClass=user)(objectClass=person)(sAMAccountName={0}))";
+        public string AdminCn { get; set; } = "CN=Admins,OU=branch,DC=contoso,DC=local";
 
-        public LdapConfig(IConfiguration config)
-        {
-            this.config = config;
-            Url = config["ldap.url"];
-            BindDn = config["ldap.bindDn"];
-            BindCredentials = config["ldap.bindCredentials"];
-            SearchBase = config["ldap.searchBase"];
-            SearchFilter = config["ldap.searchFilter"];
-            AdminCn = config["ldap.adminCn"];
-        }
     }
 }
